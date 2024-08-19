@@ -24,13 +24,14 @@ def request(dt="2023", pagenum=1):
     data = r.json()
     return data
 
-def save_json(dt="2023", parq_path=SAVE_PATH):
+def save_json(dt="2023", save_path=SAVE_PATH):
+    saving = []
     for i in range(1, 11):
-        data = request(dt)
-#        data_list = data['boxOfficeResult']['dailyBoxOfficeList']
-        df = pd.DataFrame(data)
-        df['page'] = i
-        df.to_parquet(parq_path, partition_cols=['page'])
-        print(df.head(5))
-        print("*"*30)
+        raw = request(dt, i)
+        data = raw['movieListResult']['movieList']
+        saving.extend(data)
+
+    with open(f"{save_path}/{dt}", "w", encoding="utf-8") as f:
+        json.dump(saving, f, indent=4, ensure_ascii=False)
+
     return
