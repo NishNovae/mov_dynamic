@@ -4,7 +4,7 @@ import requests
 import os
 import pandas as pd
 
-SAVE_PATH = '/home/nishtala/code/team_repo/extract_result'
+# SAVE_PATH = '/home/nishtala/code/team_repo/extract_result'i
 
 def get_key():
     key = os.getenv("MOVIE_API_KEY") 
@@ -30,4 +30,6 @@ def save_json(dt="2023", parq_path=SAVE_PATH):
         df = pd.DataFrame(data_list)
         df['page'] = i
         df.to_parquet(parq_path, partition_cols=['page'])
+        print(df.head(5))
+        print("*"*30)
     return
