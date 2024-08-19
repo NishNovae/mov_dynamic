@@ -11,7 +11,7 @@ def get_key():
     return key
 
 def gen_url(dt="2023", pagenum=1):
-    base_url = "http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?"
+    base_url = "http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json"
     key = get_key()
     pg = str(pagenum)
     url = f"{base_url}?key={key}&openStartDt={dt}&openEndDt={dt}&curPage={pg}"
