@@ -26,8 +26,8 @@ def request(dt="2023", pagenum=1):
 def save_json(dt="2023", parq_path=SAVE_PATH):
     for i in range(1, 11):
         data = request(dt)
-        data_list = data['boxOfficeResult']['dailyBoxOfficeList']
-        df = pd.DataFrame(data_list)
+#        data_list = data['boxOfficeResult']['dailyBoxOfficeList']
+        df = pd.DataFrame(data)
         df['page'] = i
         df.to_parquet(parq_path, partition_cols=['page'])
         print(df.head(5))
