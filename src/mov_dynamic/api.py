@@ -15,6 +15,7 @@ def gen_url(dt="2023", pagenum=1):
     key = get_key()
     pg = str(pagenum)
     url = f"{base_url}?key={key}&openStartDt={dt}&openEndDt={dt}&curPage={pg}"
+    print(f"Checking url: {url}")
     return url
 
 def request(dt="2023", pagenum=1):
