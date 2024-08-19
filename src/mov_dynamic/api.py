@@ -4,7 +4,7 @@ import requests
 import os
 import pandas as pd
 
-# SAVE_PATH = '/home/nishtala/code/team_repo/extract_result'i
+SAVE_PATH = '/home/nishtala/data/mov_dynamic'
 
 def get_key():
     key = os.getenv("MOVIE_API_KEY") 
@@ -17,7 +17,7 @@ def gen_url(dt="2023", pagenum):
     url = f"{base_url}?key={key}&openStartDt={dt}&openEndDt={dt}&curPage={pg}"
     return url
 
-def request(dt="2023", pagenum):
+def request(dt="2023", pagenum=1):
     url = gen_url(dt, pagenum)
     r = requests.get(url)
     data = r.json()
