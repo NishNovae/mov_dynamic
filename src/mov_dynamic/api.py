@@ -10,7 +10,7 @@ def get_key():
     key = os.getenv("MOVIE_API_KEY") 
     return key
 
-def gen_url(dt="2023", pagenum):
+def gen_url(dt="2023", pagenum=1):
     base_url = "http://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?"
     key = get_key()
     pg = str(pagenum)
