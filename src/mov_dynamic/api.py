@@ -32,7 +32,7 @@ def save_json(dt="2023", save_path=SAVE_PATH):
         data = raw['movieListResult']['movieList']
         saving.extend(data)
 
-    with open(f"{save_path}/{dt}", "w", encoding="utf-8") as f:
+    with open(f"{save_path}/movie_data_{dt}.json", "w", encoding="utf-8") as f:
         json.dump(saving, f, indent=4, ensure_ascii=False)
 
     return
